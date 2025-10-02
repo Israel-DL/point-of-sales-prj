@@ -2,13 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -18,3 +19,17 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/admin/logout', [AdminController::class, 'AdminDestroy'])->name('admin.logout');
+
+Route::get('/logout', [AdminController::class, 'AdminLogoutPage'])->name('admin.logout.page');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    Route::post('/admin/store/profile', [AdminController::class, 'AdminStoreProfile'])->name('admin.store.profile');  
+    Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
+    Route::post('/update/password', [AdminController::class, 'UpdatePassword'])->name('update.password');
+});
+
+
+
