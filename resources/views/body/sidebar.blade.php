@@ -29,7 +29,7 @@
 
                             <li>
                                 <a href="#sidebarEmployees" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-account-multiple-outline"></i>
+                                    <i class="mdi mdi-account-tie"></i>
                                     <span> Manage Employee  </span>
                                     <span class="menu-arrow"></span>
                                 </a>
@@ -65,7 +65,7 @@
 
                             <li>
                                 <a href="#sidebarSuppliers" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-account-multiple-outline"></i>
+                                    <i class="mdi mdi-truck-delivery-outline"></i>
                                     <span> Manage Suppliers </span>
                                     <span class="menu-arrow"></span>
                                 </a>
@@ -76,6 +76,24 @@
                                         </li>
                                         <li>
                                             <a href="{{ route('add.supplier') }}">Add Supplier</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#sidebarSalary" data-bs-toggle="collapse">
+                                    <i class=" mdi mdi-cash-usd-outline"></i>
+                                    <span> Employee Salary </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebarSalary">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('add.advance.salary') }}">Add Advance Salary</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('all.advance.salary') }}">All Advance Salary</a>
                                         </li>
                                     </ul>
                                 </div>
