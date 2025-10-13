@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\SalaryController;
+use App\Http\Controllers\Backend\AttendanceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -75,8 +76,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/pay/salary', 'PaySalary')->name('pay.salary');
         Route::get('/pay/salary/now/{id}', 'PaySalaryNow')->name('pay.salary.now');
         Route::post('/employee/salary/store', 'EmployeeSalaryStore')->name('employee.salary.store');
-        Route::get('/month/
-        salary', 'MonthSalary')->name('month.salary');
+        Route::get('/month/salary', 'MonthSalary')->name('month.salary');
+    });
+
+    Route::controller(AttendanceController::class)->group(function(){
+        Route::get('/employee/attendance/list', 'EmployeeAttendanceList')->name('employee.attendance.list');
+        Route::get('/add/employee/attendance', 'AddEmployeeAttendance')->name('add.employee.attendance');
+        Route::post('/employee/attendance/store', 'EmployeeAttendanceStore')->name('employee.attendance.store');
     });
 });
 

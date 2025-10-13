@@ -84,7 +84,7 @@
                             <li>
                                 <a href="#sidebarSalary" data-bs-toggle="collapse">
                                     <i class=" mdi mdi-cash-usd-outline"></i>
-                                    <span> Employee Salary </span>
+                                    <span>Manage Emp-Salary </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarSalary">
@@ -101,6 +101,22 @@
                                         <li>
                                             <a href="{{ route('month.salary') }}">Last Month Salary</a>
                                         </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#attendance" data-bs-toggle="collapse">
+                                    <i class=" mdi mdi-calendar-check"></i>
+                                    <span> Manage Attendance </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="attendance">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('employee.attendance.list') }}">Employee Attendance List</a>
+                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
