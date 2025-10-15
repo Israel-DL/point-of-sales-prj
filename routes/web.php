@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendanceController;
+use App\Http\Controllers\Backend\ProductCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -85,6 +86,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/employee/attendance/store', 'EmployeeAttendanceStore')->name('employee.attendance.store');
         Route::get('/edit/employee/attendance/{date}', 'EditEmployeeAttendance')->name('employee.attendance.edit');
         Route::get('/view/employee/attendance/{date}', 'ViewEmployeeAttendance')->name('employee.attendance.view');
+    });
+
+    Route::controller(ProductCategoryController::class)->group(function(){
+        Route::get('/all/product/category', 'AllProductCategory')->name('all.product.category'); 
+        Route::post('/store/product/category', 'StoreProductCategory')->name('product.category.store');
+        Route::get('/edit/product/category/{id}', 'EditProductCategory')->name('edit.product.category');
+        Route::post('/update/product/category', 'UpdateProductCategory')->name('update.product.category'); 
+        Route::get('/delete/product/category/{id}', 'DeleteProductCategory')->name('delete.product.category');
+
     });
 });
 
