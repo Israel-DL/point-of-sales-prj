@@ -83,6 +83,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/employee/attendance/list', 'EmployeeAttendanceList')->name('employee.attendance.list');
         Route::get('/add/employee/attendance', 'AddEmployeeAttendance')->name('add.employee.attendance');
         Route::post('/employee/attendance/store', 'EmployeeAttendanceStore')->name('employee.attendance.store');
+        Route::get('/edit/employee/attendance/{date}', 'EditEmployeeAttendance')->name('employee.attendance.edit');
+        Route::get('/view/employee/attendance/{date}', 'ViewEmployeeAttendance')->name('employee.attendance.view');
     });
 });
 
