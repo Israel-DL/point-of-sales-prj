@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendanceController;
 use App\Http\Controllers\Backend\ProductCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -94,7 +95,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/product/category/{id}', 'EditProductCategory')->name('edit.product.category');
         Route::post('/update/product/category', 'UpdateProductCategory')->name('update.product.category'); 
         Route::get('/delete/product/category/{id}', 'DeleteProductCategory')->name('delete.product.category');
+    });
 
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('/all/product', 'AllProduct')->name('all.product');
+        Route::get('/add/product', 'AddProduct')->name('add.product');
     });
 });
 

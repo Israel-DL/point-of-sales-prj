@@ -138,6 +138,26 @@
                             </li>
 
                             <li>
+                                <a href="#manageProducts" data-bs-toggle="collapse">
+                                    <i class=" mdi mdi-cart-outline"></i>
+                                    <span> Manage Products </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="manageProducts">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('all.product') }}">All Products</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('add.product') }}">Add Products</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span> Email </span>
