@@ -75,12 +75,12 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-6">
+                                                        {{-- <div class="col-md-6">
                                                             <div class="form-group mb-3">
                                                                 <label for="name" class="form-label">Product Code</label>
                                                                 <input type="text" name="product_code" class="form-control">
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
                                                         <div class="col-md-6">
                                                             <div class="form-group mb-3">
@@ -173,9 +173,9 @@
                 supplier_id: {
                     required : true,
                 },
-                product_code: {
-                    required : true,
-                },
+                // product_code: {
+                //     required : true,
+                // },
                 product_garage: {
                     required : true,
                 },
@@ -208,9 +208,9 @@
                 supplier_id: {
                     required : 'Please Select Supplier',
                 },
-                product_code: {
-                    required : 'Product Code is required',
-                },
+                // product_code: {
+                //     required : 'Product Code is required',
+                // },
                 product_garage: {
                     required : 'Please Enter Product Garage',
                 },
