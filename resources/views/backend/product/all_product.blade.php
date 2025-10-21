@@ -14,6 +14,10 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
+                                            <a href="{{ route('export') }}" class="btn btn-danger rounded-pill waves-effect waves-light">Export Product</a>
+                                            &nbsp; &nbsp; &nbsp;
+                                            <a href="{{ route('import.product') }}" class="btn btn-info rounded-pill waves-effect waves-light">Import Product</a>
+                                            &nbsp; &nbsp; &nbsp;
                                             <a href="{{ route('add.product') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Product</a>
                                         </ol>
                                     </div>
@@ -49,7 +53,7 @@
                                                 @foreach ($product as $key=> $item)                                                    
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
-                                                    <td><img src="{{ asset($item->product_image) }}" style="width: 50px; height: 40px;" alt="User Image"></td>
+                                                    <td><img src="{{ asset($item->product_image) }}" style="width: 50px; height: 40px;" alt="Product Image"></td>
                                                     <td>{{ $item->product_name }}</td>
                                                     <td>{{ $item['category']['category_name'] }}</td>
                                                     <td>{{ $item['supplier']['name'] }}</td>
