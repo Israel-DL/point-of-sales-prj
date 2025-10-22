@@ -17,7 +17,7 @@
                                             <a href="{{ route('add.expense') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Expense</a>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Today's Expense</h4>
+                                    <h4 class="page-title">Month Expense</h4>
                                 </div>
                             </div>
                         </div>     
@@ -25,8 +25,8 @@
 
 
                         @php
-                        $date = date("d-m-Y");
-                        $expense = App\Models\Expense::where('date',$date)->sum('amount');
+                        $month = date("F");
+                        $expensemonth = App\Models\Expense::where('month',$month)->sum('amount');
                         @endphp
 
 
@@ -36,8 +36,8 @@
                                     <div class="card-body">
                                         {{-- <h4 class="header-title">All Employees</h4> --}}
 
-                                        <h4 class="header-title">Today Expense</h4>
-                                        <h4 style="color: black; font-size: 30px;" align="center">Total : ₦{{ $expense }}</h4>
+                                        <h4 class="header-title">Month Expense</h4>
+                                        <h4 style="color: black; font-size: 30px;" align="center">Total : ₦{{ $expensemonth }}</h4>
                                         
 
                                         <table id="basic-datatable" class="table dt-responsive nowrap w-100">
@@ -47,24 +47,18 @@
                                                     <th>Details</th>
                                                     <th>Amount</th>
                                                     <th>Month</th>
-                                                    <th>Year</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                         
                                         
                                             <tbody>
-                                                @foreach ($today as $key=> $item)                                                    
+                                                @foreach ($monthExpense as $key=> $item)                                                    
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
                                                     
                                                     <td>{{ $item->details }}</td>
                                                     <td>{{ $item->amount }}</td>
                                                     <td>{{ $item->month }}</td>
-                                                    <td>{{ $item->year }}</td>
-                                                    <td>
-                                                        <a href="{{ route('edit.expense',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
-                                                    </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

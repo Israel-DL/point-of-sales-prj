@@ -178,11 +178,11 @@
                                         </li>
 
                                         <li>
-                                            <a href="{{ route('add.product') }}">Monthly Expense</a>
+                                            <a href="{{ route('month.expense') }}">Monthly Expense</a>
                                         </li>
 
                                         <li>
-                                            <a href="{{ route('add.product') }}">Yearly Expense</a>
+                                            <a href="{{ route('year.expense') }}">Yearly Expense</a>
                                         </li>
                                         
                                     </ul>
