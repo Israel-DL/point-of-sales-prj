@@ -162,6 +162,34 @@
                             </li>
 
                             <li>
+                                <a href="#manageExpense" data-bs-toggle="collapse">
+                                    <i class=" mdi mdi-cart-outline"></i>
+                                    <span> Manage Expenses </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="manageExpense">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('add.expense') }}">Add Expense</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('add.product') }}">Today's Expense</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('add.product') }}">Monthly Expense</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('add.product') }}">Yearly Expense</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span> Email </span>
