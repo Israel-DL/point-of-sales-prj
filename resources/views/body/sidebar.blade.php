@@ -174,7 +174,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="{{ route('add.product') }}">Today's Expense</a>
+                                            <a href="{{ route('today.expense') }}">Today's Expense</a>
                                         </li>
 
                                         <li>
