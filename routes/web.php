@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\AttendanceController;
 use App\Http\Controllers\Backend\ProductCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\PosController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -121,6 +122,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/expense/update', 'UpdateExpense')->name('expense.update');
         Route::get('/month/expense', 'MonthExpense')->name('month.expense');
         Route::get('/year/expense', 'YearExpense')->name('year.expense');
+    });
+
+    Route::controller(PosController::class)->group(function(){
+        Route::get('/pos', 'Pos')->name('pos');
     });
 
 });

@@ -18,6 +18,14 @@
                                     <span> Dashboard </span>
                                 </a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('pos') }}">
+                                    <span class="badge bg-pink float-end">New</span>
+                                    <i class="mdi mdi-cash-register"></i>
+                                    <span> POS </span>
+                                </a>
+                            </li>
                 
                             
 
@@ -163,7 +171,7 @@
 
                             <li>
                                 <a href="#manageExpense" data-bs-toggle="collapse">
-                                    <i class=" mdi mdi-cart-outline"></i>
+                                    <i class=" mdi mdi-cash"></i>
                                     <span> Manage Expenses </span>
                                     <span class="menu-arrow"></span>
                                 </a>
