@@ -39,26 +39,42 @@
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
+
+                                                @php
+                                                $allcart = Cart::content();
+                                                @endphp
+
                                                 <tbody>
+                                                    @foreach ($allcart as $cart)
                                                     <tr>
-                                                        <th>STATIC</th>
+                                                        <th>{{ $cart->name }}</th>
                                                         <td>
-                                                            <input type="number" value="0" style="width:40px;" min="1">
+
+                                                            <form method="post" action="{{ url('/cart-update/'.$cart->rowId) }}">
+                                                                @csrf
+                                                            <input type="number" name="qty" value="{{ $cart->qty }}" style="width:40px;" min="1">
+
+                                                            <button type="submit" class="btn btn-sm btn-success" style="margin-top: -2px;">
+                                                                <i class="fas fa-check"></i>
+                                                            </button>
+                                                            </form>
+
                                                         </td>
-                                                        <td>STATIC</td>
-                                                        <td>STATIC</td>
-                                                        <td><a href=""><i class="fas fa-trash-alt" style="color: #d61818"></i></a></td>
+                                                        <td>{{ $cart->price }}</td>
+                                                        <td>{{ $cart->price*$cart->qty }}</td>
+                                                        <td><a href="{{ url('/cart-remove/'.$cart->rowId) }}"><i class="fas fa-trash-alt" style="color: #d61818"></i></a></td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive-->
 
                                         <div class="bg-primary text-white">
                                             <br>
-                                            <p style="font-size: 18px;"> Quantity : 343 </p>
-                                            <p style="font-size: 18px;"> SubTotal : 343 </p>
-                                            <p style="font-size: 18px;"> Vat : 343 </p>
-                                            <p> <h2 class="text-white">Total </h2> <h1 class="text-white"> 343</h1> </p>
+                                            <p style="font-size: 18px;"> Quantity : {{ Cart::count() }} </p>
+                                            <p style="font-size: 18px;"> SubTotal : {{ Cart::subtotal() }} </p>
+                                            <p style="font-size: 18px;"> Vat : {{ Cart::tax() }} </p>
+                                            <p> <h2 class="text-white">Total </h2> <h1 class="text-white"> {{ Cart::total() }}</h1> </p>
                                             <br>
                                         </div>
 
@@ -123,10 +139,22 @@
                                                     <tbody>
                                                         @foreach ($product as $key=> $item)                                                    
                                                         <tr>
+
+                                                            <form method="post" action="{{ url('/add-cart') }}">
+                                                                @csrf
+
+                                                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                                                <input type="hidden" name="name" value="{{ $item->product_name }}">
+                                                                <input type="hidden" name="qty" value="1">
+                                                                <input type="hidden" name="price" value="{{ $item->selling_price }}">
+                                                                
+
                                                             <td>{{ $key+1 }}</td>
                                                             <td><img src="{{ asset($item->product_image) }}" style="width: 50px; height: 40px;" alt="Product Image"></td>
                                                             <td>{{ $item->product_name }}</td>
                                                             <td><button type="submit" style="font-size: 20px; color: #004167;"> <i class="fas fa-plus-square"></i> </button></td>
+
+                                                            </form>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
