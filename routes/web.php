@@ -126,6 +126,10 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(PosController::class)->group(function(){
         Route::get('/pos', 'Pos')->name('pos');
+        Route::post('/add-cart', 'AddCart');
+        Route::get('/allitem', 'AllItem');
+        Route::post('/cart-update/{rowId}', 'CartUpdate');
+        Route::get('/cart-remove/{rowId}', 'CartRemove');
     });
 
 });
