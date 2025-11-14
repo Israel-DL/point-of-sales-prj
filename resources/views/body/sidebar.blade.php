@@ -198,6 +198,25 @@
                             </li>
 
                             <li>
+                                <a href="#manageInvoices" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-file-document-multiple"></i>
+                                    <span> Manage Orders </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="manageInvoices">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('pending.order') }}">Pending Orders</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('completed.order') }}">Completed Orders</a>
+                                        </li> 
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span> Email </span>
