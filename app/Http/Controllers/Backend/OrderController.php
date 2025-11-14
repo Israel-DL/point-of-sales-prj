@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Orderdetails;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use DB;
 
 class OrderController extends Controller
 {
@@ -72,6 +73,12 @@ class OrderController extends Controller
 
         $order_id = $request->id;
 
+        $product = Orderdetails::where('order_id',$order_id)->get();
+
+        foreach($product as $item){
+            Product::where('id',$item->product_id)->update(['product_store' => DB::raw('product_store-'.$item->quantity)]);
+        }
+
         Order::findOrFail($order_id)->update(['order_status' => 'complete']);
 
         $notification = array(
@@ -86,5 +93,11 @@ class OrderController extends Controller
 
         $orders = Order::where('order_status','complete')->get();
         return view('backend.order.complete_order', compact('orders'));
+    }
+
+    public function ManageStocks(){
+
+        $product = Product::latest()->get();
+        return view('backend.stocks.all_stocks', compact('product'));
     }
 }
