@@ -217,6 +217,21 @@
                             </li>
 
                             <li>
+                                <a href="#manageStocks" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-package-variant"></i>
+                                    <span> Manage Stocks </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="manageStocks">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('manage.stocks') }}">Stocks</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span> Email </span>

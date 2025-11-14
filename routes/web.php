@@ -140,7 +140,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/completed/order', 'CompletedOrder')->name('completed.order');
         Route::get('/order/details/{order_id}', 'OrderDetails')->name('order.details');
         Route::post('/order/status/update', 'OrderStatusUpdate')->name('order.status.update');
-
+        Route::get('/manage/stocks', 'ManageStocks')->name('manage.stocks');
     });
 
 });
