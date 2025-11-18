@@ -141,6 +141,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/order/details/{order_id}', 'OrderDetails')->name('order.details');
         Route::post('/order/status/update', 'OrderStatusUpdate')->name('order.status.update');
         Route::get('/manage/stocks', 'ManageStocks')->name('manage.stocks');
+        Route::get('/order/invoice-download/{order_id}', 'OrderInvoiceDownload');
     });
 
 });
