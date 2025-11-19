@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\PosController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\RoleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -143,6 +144,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/manage/stocks', 'ManageStocks')->name('manage.stocks');
         Route::get('/order/invoice-download/{order_id}', 'OrderInvoiceDownload');
     });
+
+    Route::controller(RoleController::class)->group(function(){
+        Route::get('/all/permission', 'AllPermission')->name('all.permission');
+        Route::get('/add/permission', 'AddPermission')->name('add.permission');
+        Route::post('/permission/store', 'StorePermission')->name('permission.store');
+        Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        Route::post('/permission/update', 'UpdatePermission')->name('permission.update');
+        Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');
+
+    });
+
+
 
 });
 

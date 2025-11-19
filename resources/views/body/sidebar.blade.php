@@ -232,6 +232,21 @@
                             </li>
 
                             <li>
+                                <a href="#manageRPS" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-shield-account-variant"></i>
+                                    <span> Roles and Permissions </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="manageRPS">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('all.permission') }}">All Permission</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span> Email </span>
