@@ -256,6 +256,25 @@
                             </li>
 
                             <li>
+                                <a href="#admin" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-shield-account-variant"></i>
+                                    <span> Admin User Role Settings </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="admin">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('all.admin') }}">All Admin</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.admin') }}">Add Admin</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span> Email </span>
