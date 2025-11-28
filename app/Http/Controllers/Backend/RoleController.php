@@ -164,4 +164,48 @@ class RoleController extends Controller
         $roles = Role::all();
         return view('backend.pages.roles.all_roles_permission', compact('roles'));
     }
+
+    public function EditRolesPermission($id){
+
+        $role = Role::findOrFail($id);
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+        return view('backend.pages.roles.edit_roles_permission', compact('role', 'permissions', 'permission_groups'));
+    }
+
+    public function UpdateRolesPermission(Request $request, $id){
+
+        $role = Role::findOrFail($id);
+        $permissionIds = $request->permission;
+
+        if (!empty($permissionIds)) {
+
+            $permissions = Permission::whereIn('id', $permissionIds)->get();
+            $role->syncPermissions($permissions);
+        } else {
+            $role->syncPermissions([]);
+        }
+
+        $notification = array(
+            'message' => 'Role Permission updated succesfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('all.roles.permission')->with($notification);
+    }
+
+    public function DeleteRolesPermission($id){
+
+        $role = Role::findOrFail($id);
+        if (!is_null($role)) {
+            $role->delete();
+        }
+
+        $notification = array(
+            'message' => 'Role Permission deleted succesfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
