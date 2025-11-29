@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('admin.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.admin') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Admin</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">All Admin <span class="btn btn-danger">{{ count($alladminuser) }}</span> </h4>
                                 </div>
@@ -58,8 +60,12 @@
                                                         @endforeach
                                                     </td>
                                                     <td>
+                                                        @if (Auth::user()->can('admin.edit'))
                                                         <a href="{{ route('edit.admin',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
+                                                        @if (Auth::user()->can('admin.delete'))
                                                         <a href="{{ route('delete.admin',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

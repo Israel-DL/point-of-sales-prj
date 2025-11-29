@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('attendance.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.employee.attendance') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Employee Attendance</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">All Employee Attendance</h4>
                                 </div>
@@ -46,7 +48,9 @@
                                                     <td>{{ $key+1 }}</td>
                                                     <td>{{ date('Y-m-d', strtotime($item->date)) }}</td>
                                                     <td>
+                                                        @if (Auth::user()->can('attendance.edit'))
                                                         <a href="{{ route('employee.attendance.edit', $item->date) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
                                                         <a href="{{ route('employee.attendance.view', $item->date) }}" class="btn btn-danger rounded-pill waves-effect waves-light">View</a>
                                                     </td>
                                                 </tr>

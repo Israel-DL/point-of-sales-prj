@@ -58,7 +58,9 @@
                                                     <td>{{ $item->pay }}</td>
                                                     <td><span class="badge bg-danger">{{ $item->order_status }}</span></td>
                                                     <td>
+                                                        @if (Auth::user()->can('orders.detail'))
                                                         <a href="{{ route('order.details',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Order Details</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

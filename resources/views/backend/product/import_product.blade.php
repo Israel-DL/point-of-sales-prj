@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('product.export'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('export') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Download Xlsx</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">Import Product</h4>
                                 </div>

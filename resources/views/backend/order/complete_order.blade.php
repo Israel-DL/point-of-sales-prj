@@ -58,7 +58,9 @@
                                                     <td>{{ $item->pay }}</td>
                                                     <td><span class="badge bg-success">{{ $item->order_status }}</span></td>
                                                     <td>
+                                                        @if (Auth::user()->can('orders.pdf.download'))
                                                         <a href="{{ url('order/invoice-download',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">PDF Invoice</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

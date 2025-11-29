@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('category.add'))
                                         <ol class="breadcrumb m-0">
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup-modal">Add Product Category</button>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">All Product Categories</h4>
                                 </div>
@@ -46,8 +48,12 @@
                                                     <td>{{ $key+1 }}</td>
                                                     <td>{{ $item->category_name }}</td>
                                                     <td>
+                                                        @if (Auth::user()->can('category.edit'))
                                                         <a href="{{ route('edit.product.category',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
+                                                        @if (Auth::user()->can('category.delete'))
                                                         <a href="{{ route('delete.product.category',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

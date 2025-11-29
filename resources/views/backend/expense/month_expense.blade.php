@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('expense.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.expense') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Expense</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">Month Expense</h4>
                                 </div>

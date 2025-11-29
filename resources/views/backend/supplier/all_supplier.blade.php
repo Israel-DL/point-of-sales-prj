@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('supplier.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.supplier') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Supplier</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">All Supplier</h4>
                                 </div>
@@ -54,8 +56,12 @@
                                                     <td>{{ $item->phone }}</td>
                                                     <td>{{ $item->type }}</td>
                                                     <td>
+                                                        @if (Auth::user()->can('supplier.edit'))
                                                         <a href="{{ route('edit.supplier',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light" title="Edit"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        @endif
+                                                        @if (Auth::user()->can('supplier.delete'))
                                                         <a href="{{ route('delete.supplier',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        @endif
                                                         <a href="{{ route('details.supplier',$item->id) }}" class="btn btn-info rounded-pill waves-effect waves-light" title=" View Supplier Detials"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
