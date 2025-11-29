@@ -14,11 +14,17 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
+                                            @if (Auth::user()->can('product.export'))
                                             <a href="{{ route('export') }}" class="btn btn-danger rounded-pill waves-effect waves-light">Export Product</a>
+                                            @endif
                                             &nbsp; &nbsp; &nbsp;
+                                            @if (Auth::user()->can('product.import'))
                                             <a href="{{ route('import.product') }}" class="btn btn-info rounded-pill waves-effect waves-light">Import Product</a>
+                                            @endif
                                             &nbsp; &nbsp; &nbsp;
+                                            @if (Auth::user()->can('product.add'))
                                             <a href="{{ route('add.product') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Product</a>
+                                            @endif
                                         </ol>
                                     </div>
                                     <h4 class="page-title">All Products</h4>

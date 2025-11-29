@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('salary.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.advance.salary') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Advance Salary</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">All Advance Salary</h4>  
                                 </div>
@@ -62,8 +64,12 @@
                                                         
                                                     </td>
                                                     <td>
+                                                        @if (Auth::user()->can('salary.edit'))
                                                         <a href="{{ route('edit.advance.salary',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
+                                                        @if (Auth::user()->can('salary.delete'))
                                                         <a href="{{ route('delete.advance.salary',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

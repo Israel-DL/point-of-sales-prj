@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('customer.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.customer') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Customer</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">All Customer</h4>
                                 </div>
@@ -54,8 +56,12 @@
                                                     <td>{{ $item->phone }}</td>
                                                     <td>{{ $item->shopname }}</td>
                                                     <td>
+                                                        @if (Auth::user()->can('customer.edit'))
                                                         <a href="{{ route('edit.customer',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
+                                                        @if (Auth::user()->can('customer.delete'))
                                                         <a href="{{ route('delete.customer',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

@@ -14,7 +14,9 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
+                                            @if (Auth::user()->can('roles.all.add'))
                                             <a href="{{ route('add.role') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Role</a>
+                                            @endif
                                         </ol>
                                     </div>
                                     <h4 class="page-title">All Roles</h4>
@@ -46,8 +48,12 @@
                                                     <td>{{ $key+1 }}</td>
                                                     <td>{{ $item->name }}</td>
                                                     <td>
+                                                        @if (Auth::user()->can('roles.all.edit'))
                                                         <a href="{{ route('edit.role',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
+                                                        @if (Auth::user()->can('roles.all.delete'))
                                                         <a href="{{ route('delete.role',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

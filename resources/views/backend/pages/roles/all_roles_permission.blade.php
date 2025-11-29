@@ -14,7 +14,9 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
+                                            @if (Auth::user()->can('roles.in.permission.add'))
                                             <a href="{{ route('add.roles.permission') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Roles in Permission</a>
+                                            @endif
                                         </ol>
                                     </div>
                                     <h4 class="page-title">All Roles in Permission</h4>
@@ -54,8 +56,12 @@
 
                                                     </td>
                                                     <td width="18%">
+                                                        @if (Auth::user()->can('roles.in.permission.edit'))
                                                         <a href="{{ route('edit.role.permission',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+                                                        @endif
+                                                        @if (Auth::user()->can('roles.in.permission.delete'))
                                                         <a href="{{ route('delete.role.permission',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

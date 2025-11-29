@@ -13,9 +13,11 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
+                                        @if (Auth::user()->can('expense.add'))
                                         <ol class="breadcrumb m-0">
                                             <a href="{{ route('add.expense') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Expense</a>
                                         </ol>
+                                        @endif
                                     </div>
                                     <h4 class="page-title">Year Expense</h4>
                                 </div>
@@ -46,6 +48,7 @@
                                                     <th>Sl</th>
                                                     <th>Details</th>
                                                     <th>Amount</th>
+                                                    <th>Month</th>
                                                     <th>Year</th>
                                                 </tr>
                                             </thead>
@@ -58,6 +61,7 @@
                                                     
                                                     <td>{{ $item->details }}</td>
                                                     <td>{{ $item->amount }}</td>
+                                                    <td>{{ $item->month }}</td>
                                                     <td>{{ $item->year }}</td>
                                                 </tr>
                                                 @endforeach
