@@ -256,10 +256,20 @@
                                             <a href="{{ route('pending.order') }}">Pending Orders</a>
                                         </li>
                                         @endif
-                                        @if (Auth::user()->can('orders.complete'))
+                                        @if (Auth::user()->can('orders.confirmed'))
                                         <li>
-                                            <a href="{{ route('completed.order') }}">Completed Orders</a>
+                                            <a href="{{ route('confirmed.order') }}">Confirmed Orders</a>
                                         </li> 
+                                        @endif
+                                        @if (Auth::user()->can('orders.pending.due'))
+                                        <li>
+                                            <a href="{{ route('pending.due.orders') }}">Pending Due Orders</a>
+                                        </li>
+                                        @endif
+                                        @if (Auth::user()->can('orders.completed.due'))
+                                        <li>
+                                            <a href="{{ route('completed.due.orders') }}">Completed Due Orders</a>
+                                        </li>
                                         @endif
                                     </ul>
                                 </div>

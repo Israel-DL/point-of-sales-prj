@@ -1,6 +1,17 @@
 @extends('admin_dashboard')
 @section('admin')
 
+@php
+    $date = date('d-F-Y');
+    $today_paid = App\Models\Order::where('order_date',$date)->where('order_status','confirmed')->sum('pay');
+
+    $total_paid = App\Models\Order::where('order_status','confirmed')->sum('pay');
+    $total_due = App\Models\Order::sum('due');
+    $completed_order = App\Models\Order::where('due','<=',0)->get()->count();
+    $confirmed_order = App\Models\Order::where('order_status','confirmed')->get()->count();
+    $pending_order = App\Models\Order::where('order_status','pending')->get()->count();
+@endphp
+
 <div class="content">
 
                     <!-- Start Content-->
@@ -18,12 +29,7 @@
                                                     <i class="mdi mdi-calendar-range"></i>
                                                 </span>
                                             </div>
-                                            <a href="javascript: void(0);" class="btn btn-blue btn-sm ms-2">
-                                                <i class="mdi mdi-autorenew"></i>
-                                            </a>
-                                            <a href="javascript: void(0);" class="btn btn-blue btn-sm ms-1">
-                                                <i class="mdi mdi-filter-variant"></i>
-                                            </a>
+                                            
                                         </form>
                                     </div>
                                     <h4 class="page-title">Dashboard</h4>
@@ -39,13 +45,13 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="avatar-lg rounded-circle bg-primary border-primary border shadow">
-                                                    <i class="fe-heart font-22 avatar-title text-white"></i>
+                                                    <i class="fe-dollar-sign font-22 avatar-title text-white"></i>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="text-end">
-                                                    <h3 class="text-dark mt-1">$<span data-plugin="counterup">58,947</span></h3>
-                                                    <p class="text-muted mb-1 text-truncate">Total Revenue</p>
+                                                    <h3 class="text-dark mt-1">$<span data-plugin="counterup">{{ $today_paid }}</span></h3>
+                                                    <p class="text-muted mb-1 text-truncate">Paid Today</p>
                                                 </div>
                                             </div>
                                         </div> <!-- end row-->
@@ -59,13 +65,13 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="avatar-lg rounded-circle bg-success border-success border shadow">
-                                                    <i class="fe-shopping-cart font-22 avatar-title text-white"></i>
+                                                    <i class="fe-bar-chart-line- font-22 avatar-title text-white"></i>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="text-end">
-                                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">127</span></h3>
-                                                    <p class="text-muted mb-1 text-truncate">Today's Sales</p>
+                                                    <h3 class="text-dark mt-1">$<span data-plugin="counterup">{{ $total_paid }}</span></h3>
+                                                    <p class="text-muted mb-1 text-truncate">Total Revenue</p>
                                                 </div>
                                             </div>
                                         </div> <!-- end row-->
@@ -79,13 +85,13 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="avatar-lg rounded-circle bg-info border-info border shadow">
-                                                    <i class="fe-bar-chart-line- font-22 avatar-title text-white"></i>
+                                                    <i class="fe-shopping-cart font-22 avatar-title text-white"></i>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="text-end">
-                                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">0.58</span>%</h3>
-                                                    <p class="text-muted mb-1 text-truncate">Conversion</p>
+                                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $confirmed_order }}</span></h3>
+                                                    <p class="text-muted mb-1 text-truncate">Confirmed Orders</p>
                                                 </div>
                                             </div>
                                         </div> <!-- end row-->
@@ -104,8 +110,8 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="text-end">
-                                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">78.41</span>k</h3>
-                                                    <p class="text-muted mb-1 text-truncate">Today's Visits</p>
+                                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $pending_order }}</span></h3>
+                                                    <p class="text-muted mb-1 text-truncate">Pending Orders</p>
                                                 </div>
                                             </div>
                                         </div> <!-- end row-->
