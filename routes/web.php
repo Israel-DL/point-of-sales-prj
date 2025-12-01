@@ -180,6 +180,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/update', 'UpdateAdmin')->name('admin.update');
         Route::get('/delete/admin/{id}', 'DeleteAdmin')->name('delete.admin')->middleware('permission:admin.delete');
 
+        Route::get('/database/backup', 'DatabaseBackup')->name('database.backup')->middleware('permission:database.backup');
+        Route::get('/backup/now', 'BackupNow')->middleware('permission:database.backup.now');
+        Route::get('{getFilename}', 'DownloadDatabase')->middleware('permission:database.download');
+        Route::get('/delete/database/{getFilename}', 'DeleteDatabase')->middleware('permission:database.delete');
     });
 
 

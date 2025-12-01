@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -186,6 +188,41 @@ class AdminController extends Controller
             'alert-type' => 'success',
         );
         
+        return redirect()->back()->with($notification);
+    }
+
+    public function DatabaseBackup(){
+
+        return view('admin.db_backup')->with('files', File::allFiles(storage_path('app/private/UboldPOS')));
+    }
+
+    public function BackupNow(){
+
+        \Artisan::call('backup:run');
+
+        $notification = array(
+            'message' => 'Database backed up successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function DownloadDatabase($getFilename){
+
+        $path = storage_path('app\private\UboldPOS/' . $getFilename);
+        return response()->download($path);
+    }
+
+    public function DeleteDatabase($getFilename){
+
+        Storage::delete('UboldPOS/' . $getFilename);
+        
+        $notification = array(
+            'message' => 'Database deleted successfully',
+            'alert-type' => 'success',
+        );
+
         return redirect()->back()->with($notification);
     }
 }

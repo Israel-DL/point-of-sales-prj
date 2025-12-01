@@ -347,44 +347,28 @@
 
 
                           
-
-                            {{-- <li class="menu-title mt-2">Custom</li>
+                            @if (Auth::user()->can('database.menu'))
+                            <li class="menu-title mt-2">Database</li>
 
                             <li>
-                                <a href="#sidebarAuth" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-account-circle-outline"></i>
-                                    <span> Auth Pages </span>
+                                <a href="#backup" data-bs-toggle="collapse">
+                                    <i class="mdi mdi-database-arrow-down"></i>
+                                    <span> Database Backup </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-                                <div class="collapse" id="sidebarAuth">
+                                <div class="collapse" id="backup">
                                     <ul class="nav-second-level">
+                                        @if (Auth::user()->can('database.backup'))
                                         <li>
-                                            <a href="auth-login.html">Log In</a>
+                                            <a href="{{ route('database.backup') }}">Backup Database</a>
                                         </li>
-                                        <li>
-                                            <a href="auth-login-2.html">Log In 2</a>
-                                        </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </li>
+                            @endif
 
-                            <li>
-                                <a href="#sidebarExpages" data-bs-toggle="collapse">
-                                    <i class="mdi mdi-text-box-multiple-outline"></i>
-                                    <span> Extra Pages </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <div class="collapse" id="sidebarExpages">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="pages-starter.html">Starter</a>
-                                        </li>
-                                        <li>
-                                            <a href="pages-timeline.html">Timeline</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li> --}}
+                            
 
                         </ul>
 

@@ -68,6 +68,7 @@
                                                                     <option value="stock">Stock</option>
                                                                     <option value="roles">Roles</option>
                                                                     <option value="admin">Admin</option>
+                                                                    <option value="database">Database</option>
                                                                 </select>
                                                             </div>
                                                         </div>
