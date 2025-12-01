@@ -81,7 +81,7 @@
     
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-bordered nav-justified" role="tablist">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link py-2" data-bs-toggle="tab" href="#chat-tab" role="tab">
                             <i class="mdi mdi-message-text d-block font-22 my-1"></i>
                         </a>
@@ -90,7 +90,7 @@
                         <a class="nav-link py-2" data-bs-toggle="tab" href="#tasks-tab" role="tab">
                             <i class="mdi mdi-format-list-checkbox d-block font-22 my-1"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link py-2 active" data-bs-toggle="tab" href="#settings-tab" role="tab">
                             <i class="mdi mdi-cog-outline d-block font-22 my-1"></i>
@@ -100,7 +100,7 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content pt-0">
-                    <div class="tab-pane" id="chat-tab" role="tabpanel">
+                    {{-- <div class="tab-pane" id="chat-tab" role="tabpanel">
                 
                         <form class="search-bar p-3">
                             <div class="position-relative">
@@ -339,7 +339,7 @@
                             <a href="javascript: void(0);" class="btn btn-success waves-effect waves-light">Create Task</a>
                         </div>
 
-                    </div>
+                    </div> --}}
                     <div class="tab-pane active" id="settings-tab" role="tabpanel">
                         <h6 class="fw-medium px-3 m-0 py-2 font-13 text-uppercase bg-light">
                             <span class="d-block py-1">Theme Settings</span>
@@ -459,7 +459,7 @@
 
                             <div class="d-grid mt-4">
                                 <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
-                                <a href="https://1.envato.market/uboldadmin" class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
+                                {{-- <a href="https://1.envato.market/uboldadmin" class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a> --}}
                             </div>
                         </div>
                     </div>

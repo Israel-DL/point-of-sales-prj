@@ -138,11 +138,16 @@ Route::middleware('auth')->group(function () {
     Route::controller(OrderController::class)->group(function(){
         Route::post('/final-invoice', 'FinalInvoice');
         Route::get('/pending/order', 'PendingOrder')->name('pending.order')->middleware('permission:orders.pending');
-        Route::get('/completed/order', 'CompletedOrder')->name('completed.order')->middleware('permission:orders.complete');
+        Route::get('/confirmed/order', 'ConfirmedOrder')->name('confirmed.order')->middleware('permission:orders.confirmed');
         Route::get('/order/details/{order_id}', 'OrderDetails')->name('order.details')->middleware('permission:orders.detail');
         Route::post('/order/status/update', 'OrderStatusUpdate')->name('order.status.update');
         Route::get('/manage/stocks', 'ManageStocks')->name('manage.stocks')->middleware('permission:stock.all');
         Route::get('/order/invoice-download/{order_id}', 'OrderInvoiceDownload')->middleware('permission:orders.pdf.download');
+
+        Route::get('/pending/dueorders', 'PendingDueOrders')->name('pending.due.orders')->middleware('permission:orders.pending.due');
+        Route::get('/order/due/{id}', 'OrderDueAjax');
+        Route::post('/update/due', 'UpdateDue')->name('update.due');
+        Route::get('/completed/dueorders', 'CompletedDueOrders')->name('completed.due.orders')->middleware('permission:orders.completed.due');
     });
 
     Route::controller(RoleController::class)->group(function(){

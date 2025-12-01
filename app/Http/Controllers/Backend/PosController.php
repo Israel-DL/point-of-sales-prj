@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -13,7 +14,8 @@ class PosController extends Controller
     //
     public function Pos(){
 
-        $product = Product::latest()->get();
+        $todays_date = Carbon::now();
+        $product = Product::where('expire_date', '>', $todays_date)->get();
         $customer = Customer::latest()->get();
         return view('backend.pos.pos_page',compact('product', 'customer'));
     }

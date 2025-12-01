@@ -201,15 +201,12 @@
                         <input class="form-control" type="text" name="pay" placeholder="Pay Now">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Due Amount</label>
-                        <input class="form-control" type="text" name="due" placeholder="Due Amount">
-                    </div>
+                    
 
                     
 
                     <div class="mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Complete Order</button>
+                        <button class="btn btn-primary" type="submit">Confirm Order</button>
                     </div>
 
                 </form>

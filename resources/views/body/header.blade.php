@@ -2,7 +2,7 @@
                 <div class="container-fluid">
                     <ul class="list-unstyled topnav-menu float-end mb-0">
 
-                        <li class="d-none d-lg-block">
+                        {{-- <li class="d-none d-lg-block">
                             <form class="app-search">
                                 <div class="app-search-box dropdown">
                                     <div class="input-group">
@@ -14,9 +14,9 @@
                                       
                                 </div>
                             </form>
-                        </li>
+                        </li> --}}
     
-                        <li class="dropdown d-inline-block d-lg-none">
+                        {{-- <li class="dropdown d-inline-block d-lg-none">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-search noti-icon"></i>
                             </a>
@@ -25,7 +25,7 @@
                                     <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                                 </form>
                             </div>
-                        </li>
+                        </li> --}}
     
                         <li class="dropdown d-none d-lg-inline-block">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
@@ -37,7 +37,7 @@
     
                         
             
-                        <li class="dropdown notification-list topbar-dropdown">
+                        {{-- <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fe-bell noti-icon"></i>
                                 <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
@@ -76,7 +76,7 @@
                                 </a>
     
                             </div>
-                        </li>
+                        </li> --}}
 
                         @php
                             $id = Auth::user()->id;

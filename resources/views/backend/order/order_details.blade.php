@@ -112,7 +112,7 @@
                                                     </div> <!-- end row --> 
                                                     
                                                     <div class="text-end">
-                                                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-tick"></i> Complete Order</button>
+                                                        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-tick"></i> Confirm Order</button>
                                                     </div>
                                                 </form>
                                             </div>
