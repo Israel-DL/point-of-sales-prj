@@ -93,9 +93,9 @@
                         <!-- end form-->
 
                         <!-- Footer-->
-                        <footer class="footer footer-alt">
+                        {{-- <footer class="footer footer-alt">
                             <p class="text-muted">Don't have an account? <a href="{{ __('register') }}" class="text-muted ms-1"><b>Sign Up</b></a></p>
-                        </footer>
+                        </footer> --}}
 
                     </div> <!-- end .card-body -->
                 </div> <!-- end .align-items-center.d-flex.h-100-->
